@@ -11,10 +11,12 @@ export class CadastroPessoaComponent implements OnInit {
   pessoa: Pessoa = new Pessoa;
   listaPessoa: Pessoa[] = []
   totalPessoa: number = 0;
+  pessoaExcluída = ''
 
   constructor() { }
 
   ngOnInit(): void {
+    (document.getElementById('nome') as HTMLElement).focus();
   }
 
   random() {
@@ -29,11 +31,15 @@ export class CadastroPessoaComponent implements OnInit {
     this.listaPessoa.push(this.pessoa);
     this.totalPessoa += 1;
     this.pessoa = new Pessoa;
+    (document.getElementById('nome') as HTMLElement).focus();
   }
 
   excluir(id) {
     let pessoaId = this.listaPessoa.findIndex(cd => cd.id === id);
+    this.pessoaExcluída = this.listaPessoa[pessoaId].nome;
     this.listaPessoa.splice(pessoaId, 1);
+    alert('O registro ' + this.pessoaExcluída + ' Foi excluído com sucesso');
+    this.pessoaExcluída = '';
     this.totalPessoa -= 1;
   }
 

@@ -1,10 +1,12 @@
 <div class="container">
     <br>
+    <h5>Cadastro de Pessoas</h5>
+    <hr>
     <div class="form-row align-items-center">
         <div class="col-10">
             <label>Nome</label>
-            <input id="tituloTarefa" type="text" class="form-control form-control-sm"
-                placeholder="Digite a sua tarefa (pressione 'Enter' para adicionar)" [(ngModel)]="pessoa.nome"
+            <input id="nome" type="text" class="form-control form-control-sm"
+                placeholder="Digite o Nome (pressione 'Enter' para adicionar)" [(ngModel)]="pessoa.nome"
                 autocomplete="off" (keydown.enter)="adicionar()">
         </div>
         <div class="col-2">
@@ -13,11 +15,12 @@
     </div>
 
     <br>
+    <h5>Pessoas Cadastradas</h5>
     <table
         class="table table-striped table-light table-sm  table-bordered table-hover shadow-lg p-3 mb-5 bg-white rounded">
         <thead>
             <tr>
-                <th>Pessoas cadastradas</th>
+                <th>Nome</th>
                 <th class="text-right">Excluir</th>
             </tr>
         <tbody>
